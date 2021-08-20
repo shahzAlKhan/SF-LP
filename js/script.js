@@ -9,21 +9,11 @@ $(document).ready(function(){
 		$(".line__up--container").on("mouseleave" ,function(){
 			play();
 		});
-			//
-		//   Variables
-		//
-		//////////////////////////////////////////////////////////////////////
-
-		// Play with this value to change the speed
 		let tickerSpeed =0.3;
 		let flickity = null;
 		let isPaused = false;
 		const slideshowEl = document.querySelector('.line__up--left');
 		const slideshowEl2 = document.querySelector('.line__up--right');
-		//
-		//   Functions
-		//
-		//////////////////////////////////////////////////////////////////////
 
 		const update = () => {
 		  if (isPaused) return;
@@ -49,11 +39,6 @@ $(document).ready(function(){
 		};
 
 
-		//
-		//   Create Flickity
-		//
-		//////////////////////////////////////////////////////////////////////
-
 		flickity = new Flickity(slideshowEl, {
 		  autoPlay: false,
 		  prevNextButtons: true,
@@ -64,15 +49,6 @@ $(document).ready(function(){
 		  friction: 0.25
 		});
 		flickity.x = 0;
-
-		// slideshowEl.addEventListener('mouseenter', pause, false);
-		// slideshowEl.addEventListener('focusin', pause, false);
-		// slideshowEl.addEventListener('mouseleave', play, false);
-		// slideshowEl.addEventListener('focusout', play, false);
-
-		// flickity.on('dragStart', () => {
-		//   isPaused = true;
-		// });
 
 		update();
 
@@ -91,19 +67,6 @@ $(document).ready(function(){
 		  isPaused = true;
 		};
 
-		// const play2 = () => {
-		//   if (isPaused) {
-		//     isPaused = false;
-		//     window.requestAnimationFrame(update2);
-		//   }
-		// };
-
-
-		//
-		//   Create Flickity
-		//
-		//////////////////////////////////////////////////////////////////////
-
 		flickity2 = new Flickity(slideshowEl2, {
 		  autoPlay: false,
 		  prevNextButtons: true,
@@ -114,15 +77,6 @@ $(document).ready(function(){
 		  friction: 0.25
 		});
 		flickity2.x = 0;
-
-		// slideshowEl2.addEventListener('mouseenter', pause2, false);
-		// slideshowEl2.addEventListener('focusin', pause2, false);
-		// slideshowEl2.addEventListener('mouseleave', play2, false);
-		// slideshowEl2.addEventListener('focusout', play2, false);
-
-		// flickity2.on('dragStart', () => {
-		//   isPaused = true;
-		// });
 
 		update2();
 
@@ -193,20 +147,6 @@ $(document).ready(function(){
 
 	if ($(".line__up--container").length) {
 		if ($(window).width() > 991) {
-			// $(".line__up--container").slick({
-			// 	slidesToShow:5,
-			// 	rows:2,
-			// 	variableWidth:true,
-			// 	arrows:false,
-			// 	speed: 8000, 
-			// 	autoplay: true, 
-			// 	autoplaySpeed: 0, 
-			// 	cssEase: 'linear',
-			// 	pauseOnHover: true,
-			// 	infinite:true,
-		 //      pauseOnFocus: true
-			// })
-			
 		} else{
 			$('.copy__line').remove();
 			$('.elem__line--up').each(function(index,elem){
@@ -241,7 +181,6 @@ $(document).ready(function(){
    			$(currentForm).find('.submit__form>p').text("thank you, we'll send you an email shortly");
    			$(currentForm).find('.submit__form').slideDown(300);
    			$(currentForm).find('.submit__form').removeClass("error__submit");
-   			// $('.form__info form')[0].submit();
    			submitSubscribeForm($(".form__info form"));
    			setTimeout(function(){
 				$(currentForm).find("input[type='email']").val("");
@@ -266,16 +205,7 @@ $(document).ready(function(){
 
             success: function(data){
                 if (data.result != "success") {
-                    // var message = data.msg || "Sorry. Unable to subscribe. Please try again later.";
-
-                    // if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
-                    //     message = "You're already subscribed. Thank you.";
-                    // }
-
-                    // $resultElement.html(message);
-
                 } else { 
-                  // $resultElement.html("Thank you!<br>You must confirm the subscription in your inbox.");
                 }
             }
         });
