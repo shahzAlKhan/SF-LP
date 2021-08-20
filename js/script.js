@@ -241,7 +241,8 @@ $(document).ready(function(){
    			$(currentForm).find('.submit__form>p').text("thank you, we'll send you an email shortly");
    			$(currentForm).find('.submit__form').slideDown(300);
    			$(currentForm).find('.submit__form').removeClass("error__submit");
-   			$('.form__info form')[0].submit();
+   			// $('.form__info form')[0].submit();
+   			submitSubscribeForm($(".form__info form"));
    			setTimeout(function(){
 				$(currentForm).find("input[type='email']").val("");
    			},500);
@@ -250,4 +251,33 @@ $(document).ready(function(){
    			},3500);
 		}
 	});
+
+	function submitSubscribeForm($form, $resultElement) {
+        $.ajax({
+            type: "POST",
+            url: $form.attr("action"),
+            data: $form.serialize(),
+            cache: false,
+            dataType: "jsonp",
+            jsonp: "c",
+            contentType: "application/json; charset=utf-8",
+
+            error: function(error){},
+
+            success: function(data){
+                if (data.result != "success") {
+                    // var message = data.msg || "Sorry. Unable to subscribe. Please try again later.";
+
+                    // if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
+                    //     message = "You're already subscribed. Thank you.";
+                    // }
+
+                    // $resultElement.html(message);
+
+                } else { 
+                  // $resultElement.html("Thank you!<br>You must confirm the subscription in your inbox.");
+                }
+            }
+        });
+    }
 });
