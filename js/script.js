@@ -241,31 +241,13 @@ $(document).ready(function(){
    			$(currentForm).find('.submit__form>p').text("thank you, we'll send you an email shortly");
    			$(currentForm).find('.submit__form').slideDown(300);
    			$(currentForm).find('.submit__form').removeClass("error__submit");
-   			$(currentForm).closest("form").submit();
+   			$('.form__info form')[0].submit();
    			setTimeout(function(){
 				$(currentForm).find("input[type='email']").val("");
    			},500);
    			setTimeout(function(){
        			$(currentForm).find('.submit__form').slideUp(300);	           				
    			},3500);
-		}
-		if (errors == 0) {
-			
-			// $.ajax({
-	  //          type: "POST",
-	  //          url: "handler.php",
-	  //          data: $(".form__info form").serialize(), 
-	  //          success: function(data)
-	  //          {
-	  //          		if (data == 5) {
-	  //          			$(currentForm).find(".group__form>input[type='text']").val("");
-	  //          			$(currentForm).find('.submit__form').slideDown(300);
-	  //          			$(currentForm).find('.submit__form').removeClass("error__submit");
-	  //          			$(currentForm).find('.submit__form>p').text("thank you, we'll send you an email shortly");
-	           			
-	  //          		}
-	  //          }
-	  //        });
 		}
 	});
 });
