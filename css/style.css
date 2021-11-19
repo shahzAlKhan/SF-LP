@@ -522,8 +522,8 @@ footer .top__footer .logo__foot{
 	justify-content:flex-start;
 }
 .investor__block{
-	padding-top:70px;
-	padding-bottom:120px;
+	padding-top:30px;
+	padding-bottom:40px;
 }
 .investor__block .outer__investor .investor__partners .elem__partner:last-child{
 	margin-right: 0px;
